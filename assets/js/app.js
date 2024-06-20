@@ -43,3 +43,9 @@ function game ( ) {
 }
 
 
+buttonModal.addEventListener('click', game)
+
+buttonClose.addEventListener('click', Close)
+
+buttonInit.addEventListener('click', show)
+
