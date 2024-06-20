@@ -37,7 +37,6 @@ function game ( ) {
     message.style.color = 'red'
   }
  
-  window.onload = close()
   modal.classList.remove('ativo');
 
 }
