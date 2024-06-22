@@ -8,7 +8,7 @@ const buttonClose = document.querySelector('.modal-close');
 
 const modal = document.querySelector('.modal');
 
-let numeroSecreto =  5
+let numeroSecreto =  Math.floor(Math.random() * 40 ) +1;
 
 
 
@@ -40,7 +40,7 @@ function game ( ) {
   }else if (numero > numeroSecreto ) {
       message.style.fontSize = '1.9rem';
       message.style.color = 'orange';
-      message.textContent = `Você está perto, o número é um pouco menor que ${numero}, com tentativas: ${game.tentativas} `;
+      message.textContent = `você está perto, o número é um pouco menor que ${numero}, com tentativas: ${game.tentativas} `;
       modal.classList.remove('ativo');
     }else {
     console.log('errou');
