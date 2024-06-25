@@ -34,18 +34,18 @@ function game ( ) {
   game.tentativas++; // Incrementa o contador a cada tentativa
   if(numeroSecreto === numero) {
     console.log('acertou');
-    message.style.fontSize = '1.9rem';
+    message.style.fontSize = '1rem';
     message.style.color = 'green';
     message.textContent =  `Você acertou! O número secreto é ${numero}. tentativas: ${game.tentativas}`;
   }else if (numero > numeroSecreto ) {
-      message.style.fontSize = '1.9rem';
+      message.style.fontSize = '1rem';
       message.style.color = 'orange';
       message.textContent = `você está perto, o número é um pouco menor que ${numero}, com tentativas: ${game.tentativas} `;
       modal.classList.remove('ativo');
     }else {
     console.log('errou');
     message.textContent =`Você errou, tente novamente! Tentativas: ${game.tentativas}`;
-    message.style.fontSize = '1.9rem';
+    message.style.fontSize = '1rem';
     message.style.color = 'red';
   }
   tentativas++;
