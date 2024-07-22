@@ -274,6 +274,7 @@ strong {
   gap: 10rem;
   border-radius: 1.5rem;
 }
+
 .area-encrypted::before {
   content: "";
   display: block;
@@ -454,9 +455,20 @@ strong {
   text-align: center;
 }
 
-
-
 @media screen and (max-width: 390px) {
+  .area-encrypted-content {
+    width: 350px;
+  }
+  .retina {
+    position: absolute;
+    width: 60px;
+    aspect-ratio: inherit;
+    background: black;
+    border-radius: inherit;
+  }
+  .area-encrypted-title {
+    z-index: 1000;
+  }
   .formulario-content {
     width: 100%;
     height: auto;
