@@ -1,16 +1,18 @@
 :root {
-  --hue-color: 241;
-  --segunda-color: #615EFC;
-  --terceira-color: #7E8EF1;
-  --quarta-color: #D1D8C5;
+  --hue-color: 0;
+  --segunda-color: #A8A196;
+  --terceira-color: #7D7463;
+  --quarta-color: #EEEEEE;
   --detalhe-color: #7eca21;
+  --color-text:#F4E0B9;
+  --color-text-hover:#fff;
 
   --primeira-cor: hsl(var(--hue-color), 70%, 50%);
-  --segunda-cor: hsl(var(--hue-color), 80%, 60%);
+  --segunda-cor: hsl(var(--hue-color), 100%, 60%);
   --terceira-cor: hsl(var(--hue-color), 90%, 70%);
   --quarta-cor: hsl(var(--hue-color), 100%, 80%);
 
-  --primeira-cor-seg: hsl(var(--hue-color), 70%, 40%);
+  --primeira-cor-seg: hsl(var(--hue-color), 100%, 99%);
   --segunda-cor-seg: hsl(calc((var(--hue-color) + 90) % 360), 70%, 40%);
   --terceira-cor-seg: hsl(calc((var(--hue-color) + 180) % 360), 70%, 40%);
   --quarta-cor-seg: hsl(calc((var(--hue-color) + 270) % 360), 70%, 40%);
@@ -25,7 +27,7 @@
   --texto-cor-light: hsl(var(--hue-3-color), 8%, 65%);
   --input-cor: hsl(var(--hue-3-color), 70%, 96%);
   --body-cor: hsl(var(--hue-3-color), 0%, 99%);
-  --container-cor: #fff;
+  --container-cor: #F4E0B9;
   --scroll-bar-cor: hsl(var(--hue-3-color), 12%, 90%);
   --scroll-thumb-cor: hsl(var(--hue-3-color), 12%, 80%);
 
@@ -269,7 +271,7 @@ strong {
   z-index: var(--z-fixed);
   position: relative;
   inset: -4% 25%;
-  gap: 1rem;
+  gap: 10rem;
   border-radius: 1.5rem;
 }
 .area-encrypted::before {
@@ -293,6 +295,84 @@ strong {
   text-align: center;
 }
 
+@property --eyelid {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+@property --eyelid2 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+.eyes {
+  width: 250px;
+  padding-block: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  
+  div {
+    position: relative;
+    width: 90px;
+    aspect-ratio: 1;
+    background: white;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 116%;
+      height: 165%;
+      left: 50%;
+      animation: eyelid 5s ease-in-out infinite;
+      z-index: 1;
+    }
+    &:before {
+      top: 0;
+      border-radius: 0% 0% 40% 40%;
+      transform: translateY(var(--eyelid)) translateX(-50%);
+      border-bottom: 40px solid black;
+    }
+    &:after {
+      bottom: 0;
+      border-radius: 40% 40% 0% 0%;
+      transform: translateY(var(--eyelid2)) translateX(-50%);
+      border-top: 40px solid black;
+    }
+    i {
+      position: absolute;
+      width: 60px;
+      aspect-ratio: inherit;
+      background: black;
+      border-radius: inherit;
+    }
+  }
+}
+
+@keyframes eyelid {
+  0% {
+    --eyelid: -50%;
+    --eyelid2: 50%;
+  }
+  3% {
+    --eyelid: 0%;
+    --eyelid2: 0%;
+  }
+  6% {
+    --eyelid: -50%;
+    --eyelid2: 50%;
+  }
+  9%,100% {
+    --eyelid: 0%;
+    --eyelid2: 0%;
+  }
+}
 .area-encrypted-title{
   margin: 0 auto;
   width: 80%;
@@ -319,7 +399,7 @@ strong {
 
 .button:hover {
   background: var(--primeira-cor-lighter);
-  color: #fff;
+  color: var(--color-text-hover);
 }
 
 .footer {
@@ -347,13 +427,13 @@ strong {
 .footer-subtitle {
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
-  color: #fff;
+  color: var(--color-text);
 }
 
 .footer-title,
 .footer-subtitle,
 .footer-social {
-  color: #fff;
+  color: var(--color-text);
 }
 
 .footer-link:hover,
