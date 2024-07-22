@@ -387,7 +387,6 @@ strong {
   .nav {
     width: 100%;
     justify-content: center;
-    flex-direction: column;
   }
   .main-container {
     grid-template-columns: 1fr;
