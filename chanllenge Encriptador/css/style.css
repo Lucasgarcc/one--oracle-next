@@ -531,7 +531,13 @@ strong {
 /* Ajuste para .area-encrypted-content abaixo de 390px */
 @media screen and (max-width: 389px) {
   .area-encrypted-content {
-    width: 370px; 
+    width: 350px; 
+  }
+  .area-encrypted-title,
+  .main-title {
+    margin: 0 auto;
+    width: 150px;
+    z-index: 2000;
   }
 }
 
