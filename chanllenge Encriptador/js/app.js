@@ -23,7 +23,9 @@ function encrypt() {
   const div = document.querySelector('.area-encrypted-content');
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Criptografada';
-  title.style.color = "#FFF";
+  title.style.color = "var(--color-text)";
+  title.style.fontSize = "1.7rem";
+  title.style.margin = "0 auto";
   div.appendChild(title);
   document.querySelector('.area-encrypted-title').innerText = encrypted;
   return encrypted;
@@ -57,7 +59,7 @@ function descrypt() {
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Descriptografada';
   title.className = 'title-crypt';
-  title.style.color = "#FFF";
+  title.style.color = "var(--terceira-cor)";
   div.appendChild(title);
   document.querySelector('.area-encrypted-title').innerText = decrypted;
   return decrypted;
@@ -160,3 +162,30 @@ window.addEventListener('scroll', handleScroll);
 
 // Piscar a cada 3 a 5 segundos
 setInterval(blinkEyes, Math.random() * 2000 + 3000);
+
+
+
+/*==================== DARK LIGHT THEME ====================*/ 
+const themeButton = document.querySelector('#theme-button');
+const darkTheme = 'dark-theme';
+const iconTheme = 'uil-sun';
+
+// selected topic ( if user selected)
+const selecedThem = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
+
+//currently theme that the interface has by validating the dark-theme
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+
+selecedThem ? document.body.classList[selecedThem === 'dark' ? 'add' : 'remove'](darkTheme) : themeButton.classList[selecedThem === 'uil-moon' ? 'add' : 'remove']
+
+themeButton.addEventListener('click', () => {
+  //add or remove the dark/ icon theme
+  document.body.classList.toggle(darkTheme);
+  themeButton.classList.toggle(iconTheme);
+
+  //we save the theme and the current icon that the user chose
+  localStorage.setItem('selected-theme', getCurrentTheme());
+  localStorage.setItem('selected-icon', getCurrentIcon());
+})
