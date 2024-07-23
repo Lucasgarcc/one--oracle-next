@@ -517,6 +517,9 @@ strong {
 
 /* Wrapper em display none e Eyes em display flex acima de 800px */
 @media screen and (min-width: 800px) {
+  .area-encrypted-content {
+    width: 400px;
+  }
   .wrapper {
     display: none;
   }
