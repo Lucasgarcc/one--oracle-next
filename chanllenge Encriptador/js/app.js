@@ -102,3 +102,47 @@ document.addEventListener('mousemove', (e) => {
     eyeBall.style.transform = `translate(${moveX}px, ${moveY}px)`;
   });
 });
+
+
+const wrapper = document.getElementById('wrapper');
+const eyes = document.querySelectorAll('.eye');
+
+const updateEyeMouseTracking = (e) => {
+  const targetX = e.clientX;
+  const targetY = e.clientY;
+
+  eyes.forEach(eye => {
+    const pupil = eye.querySelector('.pupil');
+    const eyeRect = eye.getBoundingClientRect();
+    const eyeX = eyeRect.left + eyeRect.width / 2;
+    const eyeY = eyeRect.top + eyeRect.height / 2;
+
+    const angle = Math.atan2(targetY - eyeY, targetX - eyeX);
+    const distance = Math.min(
+      eye.offsetWidth / 4,
+      Math.sqrt(Math.pow(targetX - eyeX, 2) + Math.pow(targetY - eyeY, 2))
+    );
+
+    const moveX = Math.cos(angle) * distance;
+    const moveY = Math.sin(angle) * distance;
+
+    pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+};
+
+const blinkEyes = () => {
+  eyes.forEach(eye => {
+    eye.classList.add('blinking');
+  });
+
+  setTimeout(() => {
+    eyes.forEach(eye => {
+      eye.classList.remove('blinking');
+    });
+  }, 200); // Duração do piscar
+};
+
+wrapper.addEventListener('mousemove', updateEyeMouseTracking);
+
+// Piscar a cada 3 a 5 segundos
+setInterval(blinkEyes, Math.random() * 2000 + 3000);
