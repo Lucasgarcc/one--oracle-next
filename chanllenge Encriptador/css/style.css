@@ -531,7 +531,7 @@ strong {
 /* Ajuste para .area-encrypted-content abaixo de 390px */
 @media screen and (max-width: 389px) {
   .area-encrypted-content {
-    width: 500px; /* Ajuste o tamanho conforme necessário */
+    width: 600px; 
   }
 }
 
