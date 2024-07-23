@@ -528,6 +528,13 @@ strong {
   }
 }
 
+/* Ajuste para .area-encrypted-content abaixo de 390px */
+@media screen and (max-width: 389px) {
+  .area-encrypted-content {
+    width: 400px; /* Ajuste o tamanho conforme necessário */
+  }
+}
+
 /* Outras regras de mídia existentes */
 @media screen and (min-width: 390px) {
   .main-content-info {
@@ -619,5 +626,4 @@ strong {
     margin-left: .1%;
     inset: 2.5% 15%;
   }
-  
 }
