@@ -533,11 +533,12 @@ strong {
   .area-encrypted-content {
     width: 350px; 
   }
-  .main-title {
+  
+  .area-encrypted-title {
     margin: 0 auto;
-    width: 150px;
-    z-index: 2000;
+    width: 200px;
   }
+
 }
 
 /* Outras regras de mídia existentes */
