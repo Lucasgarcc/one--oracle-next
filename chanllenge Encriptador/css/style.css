@@ -456,14 +456,11 @@ strong {
 }
 
 @media screen and (max-width: 390px) {
-  .logo-main {
-    margin: 2rem;
+  .main-content-info{
+   width: 300px;
   }
   .area-encrypted-content {
     width: 380px;
-  }
-  .main-title {
-
   }
   .eyes {
     width: 200px; 
@@ -472,7 +469,7 @@ strong {
       width: 70px; 
       i {
         width: 40px; 
-        background-color: #000;
+        background: black !important;
       }
     }
   }
