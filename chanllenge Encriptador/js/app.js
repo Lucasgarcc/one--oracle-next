@@ -107,10 +107,7 @@ document.addEventListener('mousemove', (e) => {
 const wrapper = document.getElementById('wrapper');
 const eyes = document.querySelectorAll('.eye');
 
-const updateEyeMouseTracking = (e) => {
-  const targetX = e.clientX;
-  const targetY = e.clientY;
-
+const updateEyeMouseTracking = (targetX, targetY) => {
   eyes.forEach(eye => {
     const pupil = eye.querySelector('.pupil');
     const eyeRect = eye.getBoundingClientRect();
@@ -130,6 +127,21 @@ const updateEyeMouseTracking = (e) => {
   });
 };
 
+const handleMouseMove = (e) => {
+  updateEyeMouseTracking(e.clientX, e.clientY);
+};
+
+const handleTouchMove = (e) => {
+  const touch = e.touches[0];
+  updateEyeMouseTracking(touch.clientX, touch.clientY);
+};
+
+const handleScroll = () => {
+  const scrollX = window.scrollX + window.innerWidth / 2;
+  const scrollY = window.scrollY + window.innerHeight / 2;
+  updateEyeMouseTracking(scrollX, scrollY);
+};
+
 const blinkEyes = () => {
   eyes.forEach(eye => {
     eye.classList.add('blinking');
@@ -142,7 +154,9 @@ const blinkEyes = () => {
   }, 200); // Duração do piscar
 };
 
-wrapper.addEventListener('mousemove', updateEyeMouseTracking);
+wrapper.addEventListener('mousemove', handleMouseMove);
+window.addEventListener('touchmove', handleTouchMove);
+window.addEventListener('scroll', handleScroll);
 
 // Piscar a cada 3 a 5 segundos
 setInterval(blinkEyes, Math.random() * 2000 + 3000);
