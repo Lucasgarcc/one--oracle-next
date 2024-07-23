@@ -460,7 +460,10 @@ strong {
     margin: 2rem;
   }
   .area-encrypted-content {
-    width: 410px;
+    width: 380px;
+  }
+  .main-title {
+
   }
   .eyes {
     width: 200px; 
@@ -473,7 +476,10 @@ strong {
       }
     }
   }
-  .area-encrypted-title {
+  .area-encrypted-title,
+  .main-title {
+    margin: 0 auto;
+    width: 200px;
     z-index: 1000;
   }
   .formulario-content {
