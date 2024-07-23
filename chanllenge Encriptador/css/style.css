@@ -456,15 +456,22 @@ strong {
 }
 
 @media screen and (max-width: 390px) {
-  .area-encrypted-content {
-    width: 350px;
+  .logo-main {
+    margin: 2rem;
   }
-  .retina {
-    position: absolute;
-    width: 60px;
-    aspect-ratio: inherit;
-    background: black;
-    border-radius: inherit;
+  .area-encrypted-content {
+    width: 410px;
+  }
+  .eyes {
+    width: 200px; 
+    padding-block: 10px;
+    div {
+      width: 70px; 
+      i {
+        width: 40px; 
+        background-color: #000;
+      }
+    }
   }
   .area-encrypted-title {
     z-index: 1000;
@@ -499,7 +506,6 @@ strong {
   }
   
 }
-
 
 @media screen and (max-width: 1100px) { 
   .logo-item{
