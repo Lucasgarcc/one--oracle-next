@@ -1,16 +1,16 @@
 :root {
-  --hue-color: 87; /* green 105 / 73 / 35 */
-  --segunda-color: #45740b;
+  --hue-color: 0; /* green 105 / 73 / 35 */
+  --segunda-color: #C50000;
   --terceira-color: #7D7463;
-  --quarta-color: #ECFFE6;
+  --quarta-color: #FFFDEF;
   --detalhe-color: #7eca21;
-  --theme-color: #3e4b2d;
+  --theme-color: #2E4F4F;
   --color-text:#ECFFE6;
   --color-text-hover:#ECFFE6;
 
   --primeira-cor: hsl(var(--hue-color), 70%, 50%);
-  --segunda-cor: hsl(var(--hue-color), 100%, 9%);
-  --terceira-cor: hsl(var(--hue-color), 90%, 70%);
+  --segunda-cor: hsl(var(--hue-color), 100%, 50%);
+  --terceira-cor: hsl(var(--hue-color), 100%, 20%);
   --quarta-cor: hsl(var(--hue-color), 100%, 80%);
 
   --primeira-cor-seg: hsl(var(--hue-color), 80%, 80%);
@@ -18,8 +18,8 @@
   --terceira-cor-seg: hsl(var(--hue-color), 70%, 40%);
   --quarta-cor-seg: hsl((var(--hue-color)), 54%, 40%);
 
-  --primeira-cor-lighter: hsl(var(--hue-color), 50%, 55%);
-  --segunda-cor-lighter: hsl((var(--hue-color)), 70%, 60%);
+  --primeira-cor-lighter: hsl(var(--hue-color), 49%, 10%);
+  --segunda-cor-lighter: #ececec;
   --terceira-cor-lighter: hsl((var(--hue-color)), 50%, 30%);
   --quarta-cor-lighter: hsl((var(--hue-color)), 70%, 60%);
 
@@ -59,22 +59,22 @@
 
 body.dark-theme{
   /* HSL color mode */
-  --segunda-color: #c6d8b2;
-  --terceira-color: #F5EFE6;
-  --quarta-color: #09472c;
+  --segunda-color: #aa2020;
+  --terceira-color: #ffffff;
+  --quarta-color:  #221f1f;
   --detalhe-color: #7eca21;
-  --color-text:#768d76;
+  --color-text:#DEDEDE;
   --color-text-hover:#ECFFE6;
   --primeira-cor-seg: hsl(var(--hue-color), 30%, 5%);
   --segunda-cor: hsl(var(--hue-color), 20%, 80%);
   --terceira-cor: hsl(var(--hue-color), 77%, 22%);
-  --primeira-cor-lighter: hsl(var(--hue-color), 77%, 22%);
+  --primeira-cor-lighter: hsl(var(--hue-color), 60%, 50%);
   --titulo-cor: hsl(var(--hue-color), 30%, 95%);
   --text-cor: hsl(var(--hue-color), 6%, 75%);
   --input-cor: hsl(var(--hue-color), 29%, 16%);
-  --body-cor: #1a1e16;
+  --body-cor: #252525;
   --container-cor: hsl(var(--hue-color), 28%, 16%);
-  --theme-color: #7eca21;
+  --theme-color: #C10000;
 }
 
 /* Button Dark/Light */
@@ -264,12 +264,12 @@ strong {
 .main-container-button .button {
   flex-direction: row;
   width: 200px;
-  background: var(--segunda-cor); 
+  background: var(--terceira-cor); 
   border-radius: 15px;
 }
 
 .main-container-button .button-crypt:hover {
-background-color: #45740b;
+background-color: var(--primeira-cor-lighter);
 }
 
 .main-container-button .button-descrypt {
@@ -284,8 +284,8 @@ background-color: #45740b;
   color: var(--terceira-color);
 }
 
-.main-container-button .button-descrypt:hover{
-  background-color: var(--terceira-cor);
+ .button-descrypt:hover{
+  background: var(--segunda-cor-lighter);
   color: var(--segunda-cor);
 }
 
@@ -472,14 +472,29 @@ background-color: #45740b;
 }
 
 .button-message {
+  width: 100%;
+  max-width: 289px;
+  height: 40px;
+  background: var(--quarta-color);
+  text-transform: uppercase;
+  font-size: .890rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .2s linear;
+
   color: var(--terceira-color);
 }
 
-.button:hover {
-  background: var(--primeira-cor-lighter);
+.button-crypt:hover {
+  background: var(--segunda-cor-lighter);
   color: var(--segunda-cor);
 }
-
+.button-message:hover {
+  background: var(--segunda-cor-lighter);
+  color: var(--segunda-cor);
+}
 .footer {
   padding-top: -2rem;
   background-color: var(--segunda-color);
@@ -704,6 +719,6 @@ background-color: #45740b;
     gap: 4rem;
   }
   .area-encrypted {
-    inset: 0 15%;
+    inset: -2.5% 15%;
   }
 }
