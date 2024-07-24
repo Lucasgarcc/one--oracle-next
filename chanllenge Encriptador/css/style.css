@@ -319,7 +319,9 @@ background-color: #45740b;
 .area-encrypted-content {
   display: flex;
   flex-direction: column-reverse;
-  width: 100%;
+  width: 100%; /* Ajuste padrão para responsividade */
+  max-width: 450px; /* Máximo de 450px em telas maiores */
+  /* Centralizar */
   height: 15%;
   gap: 3rem;
   border-radius: 4px;
@@ -521,7 +523,9 @@ background-color: #45740b;
   text-align: center;
 }
 
-/* Wrapper em display grid abaixo de 800px */
+/* Base styling */
+
+
 @media screen and (max-width: 799px) {
   .wrapper {
     display: grid;
@@ -535,7 +539,113 @@ background-color: #45740b;
   }
 }
 
-/* Wrapper em display none e Eyes em display flex acima de 800px */
+@media screen and (max-width: 320px) {
+  .main-container {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 270px;
+  }
+  .section {
+    padding: 0;
+  }
+  .main-box-alert {
+    margin: 0 auto;
+    width: 40%;
+  }
+  .main-content {
+    margin: 0 auto;
+    gap: 4rem;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .section {
+    padding: 0;
+  }
+  .area-encrypted {
+    width: 70%;
+    margin-top: 10%;
+    margin-left: 0.1%;
+    inset: 1.5% 10%;
+  }
+  .area-encrypted-content {
+    width: 90%;
+  }
+  .area-encrypted-title {
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 390px) {
+  .area-encrypted-content {
+    width: 380px;
+  }
+  .main-title {
+    font-size: 2.1rem;
+    z-index: 2000;
+  }
+  .formulario-content {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .icon-moon {
+    font-size: 1rem;
+  }
+  .area-encrypted {
+    width: 75%;
+  }
+  .main-box-alert {
+    margin: 0 auto;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 568px) {
+ 
+  body {
+    overflow-x: hidden;
+  }
+  .nav {
+    width: 100%;
+    justify-content: center;
+  }
+  .icon-moon {
+    font-size: 2rem;
+  }
+  .main-container {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+  .logo-main {
+    padding: 1rem;
+  }
+  .main-content {
+    margin: 0 auto;
+    gap: 4rem;
+    max-width: 100%;
+  }
+  .main-content-info {
+    width: 300px;
+  }
+  .main-description {
+    max-width: 100%;
+  }
+  .main-container-button {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .formulario {
+    margin-top: 10%;
+  }
+}
+
 @media screen and (min-width: 800px) {
   .area-encrypted-content {
     width: 450px;
@@ -548,67 +658,10 @@ background-color: #45740b;
   }
 }
 
-/* Ajuste para .area-encrypted-content abaixo de 390px */
-@media screen and (max-width: 389px) {
-  .area-encrypted-content {
-    width: 350px; 
-  }
-  
-  .area-encrypted-title {
-    margin: 0 auto;
-    width: 200px;
-  }
-}
-
-/* Outras regras de mídia existentes */
-@media screen and (min-width: 390px) {
-  .main-content-info {
-    width: 300px;
-  }
-  .area-encrypted-content {
-    width: 450px;
-  }
-
-  .main-title {
- 
-    font-size: 2.1rem;
-    width: 200px;
-    z-index: 2000;
-  }
-  .formulario-content {
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 568px) {
-  .nav {
-    width: 100%;
-    justify-content: center;
-  }
-  .main-container {
-    grid-template-columns: 1fr;
-  }
-  .logo-main {
-    padding: 1rem;
-  }
-  .main-content {
-    gap: 4rem;
-  }
-  .main-container-button {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .formulario {
-    margin-top: 10%;
-  }
-}
-
 @media screen and (min-width: 1024px) {
   .grid {
     display: grid;
-    gap: 0rem;
+    gap: 0;
   }
   .footer {
     padding: 0;
@@ -617,7 +670,7 @@ background-color: #45740b;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
-  .footer-copy { 
+  .footer-copy {
     grid-row: 4;
     grid-column: 2;
   }
@@ -630,8 +683,10 @@ background-color: #45740b;
   }
 }
 
-@media screen and (max-width: 1100px) { 
-
+@media screen and (max-width: 1100px) {
+  .icon-moon {
+    font-size: 1.5rem;
+  }
   .logo-item {
     padding: 1rem;
   }
@@ -639,18 +694,16 @@ background-color: #45740b;
     justify-content: center;
   }
   .section {
-    padding: 4em 0 2rem;
+    padding: 4rem 2rem;
+    max-width: 100%;
   }
   .main-container {
-    padding: 2rem;
     grid-template-columns: 1fr;
   }
   .main-content {
     gap: 4rem;
   }
   .area-encrypted {
-    margin-top: 10%;
-    margin-left: .1%;
-    inset: 2.5% 15%;
+    inset: 0 15%;
   }
 }

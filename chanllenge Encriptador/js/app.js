@@ -2,29 +2,60 @@ const buttonCrypt = document.querySelector('.button-crypt');
 const buttonDescrypt = document.querySelector('.button-descrypt');
 const buttonMessage = document.querySelector('.button-message');
 
-function checkEmptyInput() {
+function blockUppercase(event) {
+  const tecla = event.key;
+  const alertElement = document.querySelector('.main-box-alert');
   const inputField = document.querySelector('#message');
-  if (inputField.value.trim() === '') {
+  const trimmedValue = inputField.value.trim();
+
+  if (tecla === tecla.toUpperCase() && tecla !== tecla.toLowerCase()) {
+    alertElement.style.color = 'red';
+    event.preventDefault(); // Impede a inserção da letra maiúscula
+  } else if (tecla === tecla.toUpperCase() && trimmedValue === '') {
+    // Exibe o alerta apenas se o campo estiver vazio
     alert('Por favor, insira uma mensagem.');
-    return true; // Retorna true se o campo estiver vazio
+  } else {
+    alertElement.style.color = 'var(--terceira-color)';
   }
-  return false; // Retorna false se o campo não estiver vazio
 }
 
+document.querySelector('#message').addEventListener('keydown', blockUppercase);
+
+
+function checkInput() {
+  const inputField = document.querySelector('#message');
+  const trimmedValue = inputField.value.trim();
+  
+  // Verifica se o valor, após remover espaços, é uma string vazia
+  if (trimmedValue === '') {
+
+    if (!inputField.dataset.alertShown) {
+      alert('Por favor, insira uma mensagem.');
+      inputField.dataset.alertShown = 'true'; // Marca que o alerta foi exibido
+    }
+    return true; // Retorna true se o campo estiver vazio
+  } else {
+    // Se o campo não estiver vazio, reseta o estado do alerta
+    inputField.dataset.alertShown = 'false';
+    return false; // Retorna false se o campo não estiver vazio
+  }
+}
+
+
+
 function encrypt() {
-  if (checkEmptyInput()) return; 
+  if (checkInput()) return; 
   let text = document.querySelector('#message').value;
-  let matriz = 3;
-  let encrypted = text.replace(/[a-z]/gi, function (char) {
-    let charCode = char.charCodeAt(0);
-    let base = charCode >= 65 && charCode <= 90 ? 65 : 97;
-    return String.fromCharCode(((charCode - base + matriz + 26) % 26) + base);
-  });
+  let encrypted = text.replace(/e/gi, "enter")
+  .replace(/i/gi, "imes")
+  .replace(/a/gi, "ai")
+  .replace(/o/gi, "ober")
+  .replace(/u/gi, "ufat");
   const div = document.querySelector('.area-encrypted-content');
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Criptografada';
   title.style.color = "var(--color-text)";
-  title.style.fontSize = "1.7rem";
+  title.style.fontSize = "1.4rem";
   title.style.margin = "0 auto";
   div.appendChild(title);
   document.querySelector('.area-encrypted-title').innerText = encrypted;
@@ -34,8 +65,8 @@ function encrypt() {
 buttonCrypt.addEventListener('click', encrypt);
 
 function showCrypt(event) {
+  if (checkInput()) return; 
   event.preventDefault();
-  if (checkEmptyInput()) return; 
   let encryptedText = encrypt();
   const inputField = document.querySelector('#message');
   inputField.style.textAlign = "center";
@@ -47,14 +78,13 @@ function showCrypt(event) {
 buttonMessage.addEventListener('click', showCrypt);
 
 function descrypt() {
-  if (checkEmptyInput()) return; 
+  if (checkInput()) return; 
   let outputText = document.querySelector('.area-encrypted-title').innerText;
-  let matriz = 3;
-  let decrypted = outputText.replace(/[a-z]/gi, function (char) {
-    let charCode = char.charCodeAt(0);
-    let base = charCode >= 65 && charCode <= 90 ? 65 : 97;
-    return String.fromCharCode(((charCode - base - matriz + 26) % 26) + base);
-  });
+  let decrypted = outputText.replace(/enter/gi, "e")
+  .replace(/imes/gi, "i")
+  .replace(/ai/gi, "a")
+  .replace(/ober/gi, "o")
+  .replace(/ufat/gi, "u")
   const div = document.querySelector('.area-encrypted-content');
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Descriptografada';
@@ -66,8 +96,8 @@ function descrypt() {
 }
 
 function showDescrypt(event) {
+  if (checkInput()) return; 
   event.preventDefault();
-  if (checkEmptyInput()) return; 
   let decryptedText = descrypt();
   const inputField = document.querySelector('#message');
   inputField.style.textAlign = "center";
@@ -170,22 +200,21 @@ const themeButton = document.querySelector('#theme-button');
 const darkTheme = 'dark-theme';
 const iconTheme = 'uil-sun';
 
-// selected topic ( if user selected)
 const selecedThem = localStorage.getItem('selected-theme');
 const selectedIcon = localStorage.getItem('selected-icon');
 
-//currently theme that the interface has by validating the dark-theme
+
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
 const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
 
 selecedThem ? document.body.classList[selecedThem === 'dark' ? 'add' : 'remove'](darkTheme) : themeButton.classList[selecedThem === 'uil-moon' ? 'add' : 'remove']
 
 themeButton.addEventListener('click', () => {
-  //add or remove the dark/ icon theme
+ 
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
 
-  //we save the theme and the current icon that the user chose
+ 
   localStorage.setItem('selected-theme', getCurrentTheme());
   localStorage.setItem('selected-icon', getCurrentIcon());
 })
