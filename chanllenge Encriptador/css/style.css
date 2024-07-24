@@ -234,6 +234,10 @@ strong {
   color:var(--terceira-color)
 }
 
+textarea {
+  resize: none;
+}
+
 #message::-webkit-input-placeholder {
   padding-top: 20px;
   border: none;
