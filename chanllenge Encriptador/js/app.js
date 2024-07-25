@@ -41,71 +41,105 @@ function checkInput() {
   }
 }
 
-
-
+// Função para criptografar a mensagem
 function encrypt() {
   if (checkInput()) return; 
-  let text = document.querySelector('#message').value;
+  
+  let textElement = document.querySelector('#message');
+  let text = textElement.value;
   let encrypted = text.replace(/e/gi, "enter")
-  .replace(/i/gi, "imes")
-  .replace(/a/gi, "ai")
-  .replace(/o/gi, "ober")
-  .replace(/u/gi, "ufat");
+                      .replace(/i/gi, "imes")
+                      .replace(/a/gi, "ai")
+                      .replace(/o/gi, "ober")
+                      .replace(/u/gi, "ufat");
+
   const div = document.querySelector('.area-encrypted-content');
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Criptografada';
   title.style.color = "var(--color-text)";
   title.style.fontSize = "1.4rem";
   title.style.margin = "0 auto";
+  
   div.appendChild(title);
   document.querySelector('.area-encrypted-title').innerText = encrypted;
+  
+  textElement.value = '';  
+
   return encrypted;
 }
 
 buttonCrypt.addEventListener('click', encrypt);
 
+
 function showCrypt(event) {
   if (checkInput()) return; 
   event.preventDefault();
   let encryptedText = encrypt();
-  const inputField = document.querySelector('#message');
+  const inputField = document.querySelector('.area-encrypted-title');
   inputField.style.textAlign = "center";
-  inputField.style.margin = "center";
+  inputField.style.margin = "0 auto";
   inputField.style.fontSize= "1.4rem";
   inputField.style.fontWeight = "550";
-  inputField.value = encryptedText;
+  inputField.innerText = encryptedText; 
 }
-buttonMessage.addEventListener('click', showCrypt);
 
-function descrypt() {
-  if (checkInput()) return; 
-  let outputText = document.querySelector('.area-encrypted-title').innerText;
-  let decrypted = outputText.replace(/enter/gi, "e")
-  .replace(/imes/gi, "i")
-  .replace(/ai/gi, "a")
-  .replace(/ober/gi, "o")
-  .replace(/ufat/gi, "u")
-  const div = document.querySelector('.area-encrypted-content');
-  const title = document.querySelector('h1');
-  title.innerText = 'Mensagem Descriptografada';
-  title.className = 'title-crypt';
-  title.style.color = "var(--terceira-cor)";
-  div.appendChild(title);
-  document.querySelector('.area-encrypted-title').innerText = decrypted;
+
+function decrypt() {
+  let textElement = document.querySelector('.area-encrypted-title');
+  let text = textElement.innerText;
+  let decrypted = text.replace(/enter/gi, "e")
+                      .replace(/imes/gi, "i")
+                      .replace(/ai/gi, "a")
+                      .replace(/ober/gi, "o")
+                      .replace(/ufat/gi, "u");
+
   return decrypted;
 }
 
-function showDescrypt(event) {
-  if (checkInput()) return; 
-  event.preventDefault();
-  let decryptedText = descrypt();
+
+function showDescrypt() {
+  let decryptedText = decrypt();
+  
+  const title = document.querySelector('h1');
+  title.innerText = 'Mensagem Descriptografada';
+  title.style.color = "var(--color-text)";
+  title.style.fontSize = "1.4rem";
+  title.style.margin = "0 auto";
+  
+  const div = document.querySelector('.area-encrypted-content');
+  div.appendChild(title);
+
+  const inputField = document.querySelector('.area-encrypted-title');
+  inputField.style.textAlign = "center";
+  inputField.style.margin = "0 auto";
+  inputField.style.fontSize= "1.4rem";
+  inputField.style.fontWeight = "550";
+  inputField.innerText = decryptedText;  
+  decryptedText.value = '';
+
+}
+
+buttonDescrypt.addEventListener('click', showDescrypt);
+
+function sendMessage() {
+  let decryptedText = decrypt();
+
   const inputField = document.querySelector('#message');
   inputField.style.textAlign = "center";
-  inputField.style.margin = "center";
+  inputField.style.margin = "0 auto";
+  inputField.style.fontSize= "1.4rem";
   inputField.style.fontWeight = "550";
   inputField.value = decryptedText;
+  decryptedText.value = '';
 }
+
+
 buttonDescrypt.addEventListener('click', showDescrypt);
+
+buttonMessage.addEventListener('click', sendMessage);
+
+
+
 
 
 /* Animation */
