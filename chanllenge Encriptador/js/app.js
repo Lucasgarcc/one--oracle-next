@@ -105,7 +105,7 @@ function showDescrypt() {
   title.style.color = "var(--color-text)";
   title.style.fontSize = "1.3rem";
   title.style.textAlign = "center";
-  title.style.width = "200px";
+  title.style.width = "150px";
   title.style.margin = "0 auto";
   
   const div = document.querySelector('.area-encrypted-content');
