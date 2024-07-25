@@ -31,7 +31,7 @@ function checkInput() {
 
     if (!inputField.dataset.alertShown) {
       alert('Por favor, insira uma mensagem.');
-      inputField.dataset.alertShown = 'true'; /
+      inputField.dataset.alertShown = 'true'; 
     }
     return true; 
   } else {
