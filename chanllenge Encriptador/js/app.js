@@ -104,8 +104,8 @@ function showDescrypt() {
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Descriptografada';
   title.style.color = "var(--color-text)";
-  title.style.width = "200px";
-  title.style.wordBreak = "break-all";
+  title.style.width = "210px";
+  title.style.wordBreak = "break-word";
   title.style.fontSize = "1.4rem";
   title.style.margin = "0 auto";
   

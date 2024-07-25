@@ -725,4 +725,7 @@ background-color: var(--primeira-cor-lighter);
   .area-encrypted {
     inset: -2.5% 15%;
   }
+  .main-title {
+    word-break: none ;
+  }
 }
