@@ -100,14 +100,15 @@ function decrypt() {
 function showDescrypt() {
   let decryptedText = decrypt();
   
+  const div = document.querySelector('.area-encrypted-content');
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Descriptografada';
   title.style.color = "var(--color-text)";
-  title.style.color = "var(--color-text)";
+  title.style.width = "200px";
+  title.style.wordBreak = "break-all";
   title.style.fontSize = "1.4rem";
   title.style.margin = "0 auto";
   
-  const div = document.querySelector('.area-encrypted-content');
   div.appendChild(title);
 
   const inputField = document.querySelector('.area-encrypted-title');
