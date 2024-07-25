@@ -117,13 +117,13 @@ function showDescrypt() {
   inputField.style.fontSize= "1.4rem";
   inputField.style.fontWeight = "550";
   inputField.innerText = decryptedText;  
-  decryptedText.value = '';
-
+ 
 }
 
 buttonDescrypt.addEventListener('click', showDescrypt);
 
-function sendMessage() {
+function sendMessage(event) {
+  event.preventDefault();
   let decryptedText = decrypt();
 
   const inputField = document.querySelector('#message');
@@ -132,7 +132,7 @@ function sendMessage() {
   inputField.style.fontSize= "1.4rem";
   inputField.style.fontWeight = "550";
   inputField.value = decryptedText;
-  decryptedText.value = '';
+  document.querySelector('.area-encrypted-title').innerText = '';
 }
 
 
