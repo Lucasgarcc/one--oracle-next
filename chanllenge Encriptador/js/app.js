@@ -26,22 +26,21 @@ function checkInput() {
   const inputField = document.querySelector('#message');
   const trimmedValue = inputField.value.trim();
   
-  // Verifica se o valor, após remover espaços, é uma string vazia
+
   if (trimmedValue === '') {
 
     if (!inputField.dataset.alertShown) {
       alert('Por favor, insira uma mensagem.');
-      inputField.dataset.alertShown = 'true'; // Marca que o alerta foi exibido
+      inputField.dataset.alertShown = 'true'; /
     }
-    return true; // Retorna true se o campo estiver vazio
+    return true; 
   } else {
-    // Se o campo não estiver vazio, reseta o estado do alerta
+    
     inputField.dataset.alertShown = 'false';
-    return false; // Retorna false se o campo não estiver vazio
+    return false; 
   }
 }
 
-// Função para criptografar a mensagem
 function encrypt() {
   if (checkInput()) return; 
   
@@ -226,9 +225,8 @@ window.addEventListener('scroll', handleScroll);
 // Piscar a cada 3 a 5 segundos
 setInterval(blinkEyes, Math.random() * 2000 + 3000);
 
-
-
 /*==================== DARK LIGHT THEME ====================*/ 
+
 const themeButton = document.querySelector('#theme-button');
 const darkTheme = 'dark-theme';
 const iconTheme = 'uil-sun';
