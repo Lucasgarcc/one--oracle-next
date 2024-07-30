@@ -6,34 +6,33 @@ function checkInput(event) {
   const inputField = document.querySelector('#message');
   const alertElement = document.querySelector('.main-box-alert');
   const trimText = inputField.value.trim();
-  const regex = /^[a-z]+$/;
-  const validation = regex.test(trimText);
+  const regex = /^[a-z0-9\s]*$/;
+  
+  const validation = trimText.match(regex);
 
-  // Verifica se o campo está vazio após remover espaços
   if (trimText === '') {
     if (!inputField.dataset.alertShown) {
       alert('Por favor, insira uma mensagem!');
-      inputField.dataset.alertShown = 'true'; 
+      inputField.dataset.alertShown = 'true';
+    }
+    return true; 
+  } else {
+    inputField.dataset.alertShown = '';
+    
+  }
+  
+  if (!validation) {
+    if (!inputField.dataset.invalidAlertShown) {
+      alert('Campo com acentos, letras maiúsculas ou caracteres inválidos!');
       alertElement.style.color = 'red';
-      console.log(inputField)
+      inputField.dataset.invalidAlertShown = 'true'; 
     }
     return false; 
   } else {
-    inputField.dataset.alertShown = '';
+    inputField.dataset.invalidAlertShown = '';
     alertElement.style.color = 'var(--terceira-color)';
+
   }
-
-  // Verifica se a entrada é válida (apenas letras minúsculas sem acentos)
-
-  if (!validation) {
-    alert('Campo com acentos, letras maiúsculas ou caracteres inválidos!');
-    console.log(validation)
-    return false;
-  }
-
-  console.log('Está ok');
-  console.log(inputField)
-   
   return true; 
 }
 
@@ -55,7 +54,7 @@ function encrypt() {
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Criptografada 🔐';
   title.style.color = "var(--color-text)";
-  title.style.width = "200px";
+  title.style.width = "170px";
   title.style.fontSize = "1.4rem";
   title.style.margin = "0 auto";
   
