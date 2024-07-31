@@ -6,7 +6,7 @@ function checkInput(event) {
   const inputField = document.querySelector('#message');
   const alertElement = document.querySelector('.main-box-alert');
   const trimText = inputField.value.trim();
-  const regex = /^[a-z0-9\s]*$/;
+  const regex = /^[a-z\s]*$/g;
   
   const validation = trimText.match(regex);
 
