@@ -2,26 +2,15 @@ const buttonCrypt = document.querySelector('.button-crypt');
 const buttonDescrypt = document.querySelector('.button-descrypt');
 const buttonMessage = document.querySelector('.button-message');
 
-function checkInput(event) {
-  const inputField = document.querySelector('#message');
+function checkInput() {
+  const inputField = document.querySelector('#message') ;
   const alertElement = document.querySelector('.main-box-alert');
-  const trimText = inputField.value.trim();
+  const trimText = inputField.value;
   const regex = /^[a-z\s]*$/g;
   
   const validation = trimText.match(regex);
 
-  if (trimText === '') {
-    if (!inputField.dataset.alertShown) {
-      alert('Por favor, insira uma mensagem!');
-      inputField.dataset.alertShown = 'true';
-    }
-    return true; 
-  } else {
-    inputField.dataset.alertShown = '';
-    
-  }
-  
-  if (!validation) {
+  if (!validation || trimText === '') {
     if (!inputField.dataset.invalidAlertShown) {
       alert('Campo com acentos, letras maiúsculas ou caracteres inválidos!');
       alertElement.style.color = 'red';
@@ -127,6 +116,20 @@ function sendMessage() {
   inputField.style.fontWeight = "550";
   inputField.value = decryptedText;
   document.querySelector('.area-encrypted-title').innerText = '';
+
+  const div = document.querySelector('.area-encrypted-content');
+  const title = document.querySelector('h1');
+  title.innerText = 'Mensagem Enviada';
+  title.style.color = "var(--color-text)";
+  title.style.width = "250px";
+  title.style.wordBreak = "break-word";
+  title.style.fontSize = "1.4rem";
+  title.style.margin = "0 auto";
+
+  setTimeout(( ) => {
+    location.reload()
+  },2500);
+  
 }
 
 buttonDescrypt.addEventListener('click', showDescrypt);
