@@ -121,14 +121,14 @@ function sendMessage() {
   const title = document.querySelector('h1');
   title.innerText = 'Mensagem Enviada';
   title.style.color = "var(--color-text)";
-  title.style.width = "250px";
+  title.style.width = "210px";
   title.style.wordBreak = "break-word";
   title.style.fontSize = "1.4rem";
   title.style.margin = "0 auto";
 
   setTimeout(( ) => {
     location.reload()
-  },2500);
+  },5000);
   
 }
 
