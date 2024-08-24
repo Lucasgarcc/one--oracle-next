@@ -1,11 +1,10 @@
 # Meu Projeto 🔐
 
-![Screenshot](https://media.licdn.com/dms/image/D4D2DAQGUVFRVH26uDA/profile-treasury-image-shrink_1920_1920/0/1721918946930?e=1722528000&v=beta&t=LVbXk2ZD0gQTtn8mwCUa9IJdnoAocIQVD15MuTsASig)
-
-
 ## Descrição do Projeto
 Meu projeto é um decodificador de mensagens divertido, que transforma letras em palavras engraçadas!
 !Demonstração
+
+![Frame 11](https://github.com/user-attachments/assets/a74b7b9c-9e38-46ac-bc76-cf4aca1d7f4a)
 
 ## 💡 Funcionalidades: 
 
@@ -20,7 +19,7 @@ Meu projeto é um decodificador de mensagens divertido, que transforma letras em
 - HTML
 - CSS
 - JavaScript
-
+-Figma
 
 ## Como Usar
 1. Clone o repositório.
